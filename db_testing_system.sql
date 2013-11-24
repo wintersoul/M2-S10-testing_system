@@ -33,13 +33,9 @@ CREATE TABLE IF NOT EXISTS Themes(
 CREATE TABLE IF NOT EXISTS Test(
 
  id_test INTEGER NOT NULL AUTO_INCREMENT,
- id_user INTEGER NOT NULL,
- id_category INTEGER NOT NULL,
  id_theme INTEGER NOT NULL,
  test_name CHAR (50) NOT NULL,
  PRIMARY KEY (id_test),
- FOREIGN KEY (id_user) REFERENCES Users(id_user),
- FOREIGN KEY (id_category) REFERENCES Categories(id_category),
  FOREIGN KEY (id_theme) REFERENCES Themes(id_theme)
 )ENGINE=INNODB;
 
@@ -48,13 +44,9 @@ CREATE TABLE IF NOT EXISTS Test(
 CREATE TABLE IF NOT EXISTS Questions(
 
  id_question INTEGER NOT NULL AUTO_INCREMENT,
- id_category INTEGER NOT NULL,
- id_theme INTEGER NOT NULL,
  id_test INTEGER NOT NULL,
  question CHAR (100) NOT NULL,
  PRIMARY KEY (id_question),
- FOREIGN KEY (id_category) REFERENCES Categories(id_category),
- FOREIGN KEY (id_theme) REFERENCES Themes(id_theme),
  FOREIGN KEY (id_test) REFERENCES Test(id_test)
 )ENGINE=INNODB;
 
@@ -82,6 +74,3 @@ CREATE TABLE IF NOT EXISTS ProceccingTest(
  FOREIGN KEY (id_user) REFERENCES Users(id_user),
  FOREIGN KEY (id_test) REFERENCES Test(id_test)
 )ENGINE=INNODB;
-
-
-
